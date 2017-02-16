@@ -14,7 +14,7 @@ export class AccountService {
   getAll() : Promise<Account[]>{
          return this.http.get(this.serviceUrl)
                          .toPromise()
-                         .then(response => response.json().data as Hero[])
+                         .then(response => response.json().data as Account[])
                          .catch(this.handleError);
   }
 
