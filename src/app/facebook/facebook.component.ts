@@ -5,14 +5,14 @@ declare const FB: any;
 
 @Component({
   selector: 'app-facebook',
-  templateUrl: './facebook.component.html',
+  template: '<img src="{{imagemUsuario}}" alt="">',
   styleUrls: ['./facebook.component.css'],
   providers: [FacebookService]
 })
 export class FacebookComponent implements OnInit {
 
  constructor(private fb: FacebookService) { }
-  imagemUsuario: string;
+  private imagemUsuario: string;
 
   ngOnInit() {
     let fbParams: FacebookInitParams = {
