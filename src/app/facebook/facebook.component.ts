@@ -12,6 +12,7 @@ declare const FB: any;
 export class FacebookComponent implements OnInit {
 
  constructor(private fb: FacebookService) { }
+  imagemUsuario: string;
 
   ngOnInit() {
     let fbParams: FacebookInitParams = {
@@ -19,8 +20,8 @@ export class FacebookComponent implements OnInit {
                                    xfbml: true,
                                    version: 'v2.8'
                 };
+                
     this.fb.init(fbParams);
-
     this.loginFacebook();
   }
 
@@ -36,6 +37,7 @@ export class FacebookComponent implements OnInit {
 
     this.fb.api(userId+"/picture/","get").then(function(data){
       console.log(data);
+      this.imagemUsuario = data.url;
     }).catch(function(err){
       console.log(err);
     });
