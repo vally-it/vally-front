@@ -24,11 +24,21 @@ export class FacebookComponent implements OnInit {
     this.loginFacebook();
   }
 
-    loginFacebook(): void {
+  loginFacebook(): void {
     this.fb.login().then(
-      (response: FacebookLoginResponse) => console.log(response),
+      (response: FacebookLoginResponse) => this.getUserPicture(),
       (error: any) => console.error(error)
     );
+  }
+
+  getUserPicture(){
+    let userId = this.fb.getAuthResponse().userID;
+
+    this.fb.api(userId+"/picture/","get").then(function(data){
+      console.log(data);
+    }).catch(function(err){
+      console.log(err);
+    });
   }
 
 }
