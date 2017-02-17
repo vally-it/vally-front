@@ -1,7 +1,8 @@
 import { Injectable} from '@angular/core';
 import { Account } from '../account';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/toPromise';
+import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/Rx';
 
 @Injectable()
 export class AccountService {
@@ -11,15 +12,9 @@ export class AccountService {
     this.serviceUrl = "http://vally-api.azurewebsites.net/api/accounts";
   }
 
-  getAll() : Promise<Account[]>{
-         return this.http.get(this.serviceUrl)
-                         .toPromise()
-                         .then(response => response.json().data as Account[])
-                         .catch(this.handleError);
-  }
-
-  private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error);
-    return Promise.reject(error.message || error);
+  getAll() : Observable<Account[]>{
+    return this.http.get(this.serviceUrl)
+                    .map((res:Response) => res.json())
+                    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 }
