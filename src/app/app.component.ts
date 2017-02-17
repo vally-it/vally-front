@@ -5,7 +5,8 @@ import {FacebookService, FacebookLoginResponse, FacebookInitParams} from 'ng2-fa
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [FacebookService]
 })
 export class AppComponent {
   title = 'Vally';
