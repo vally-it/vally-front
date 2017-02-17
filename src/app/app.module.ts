@@ -8,6 +8,7 @@ import { EntryListComponent } from './entry-list/entry-list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AccountComponent } from './account/account.component';
 import { AccountService } from './services/account.service';
+import { FacebookComponent } from './facebook/facebook.component';
 
 const appRoutes: Routes = [
   { path: 'accounts', component: AccountComponent },
@@ -18,7 +19,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     EntryListComponent,
-    AccountComponent
+    AccountComponent,
+    FacebookComponent
   ],
   imports: [
     BrowserModule,
