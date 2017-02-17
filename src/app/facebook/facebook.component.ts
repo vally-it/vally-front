@@ -35,12 +35,13 @@ export class FacebookComponent implements OnInit {
   getUserPicture(){
     let userId = this.fb.getAuthResponse().userID;
 
-    this.fb.api(userId+"/picture/","get").then(function(data){
-      console.log(data);
-      this.imagemUsuario = data.url;
-    }).catch(function(err){
+    this.fb.api(userId+"/picture/","get").then(this.setUserPicture).catch(function(err){
       console.log(err);
     });
+  }
+
+  setUserPicture(data){
+    this.imagemUsuario = data.url;
   }
 
 }
