@@ -2,24 +2,34 @@
     <md-sidenav #sidenav mode="side" class="app-sidenav">
         <md-list>
             <md-list-item><a routerLink="/accounts" routerLinkActive="active">Contas</a></md-list-item>
-            <md-list-item> <a routerLink="/entry-list" routerLinkActive="active">Extratos</a> </md-list-item>
-            <md-list-item> Relatórios </md-list-item>
         </md-list>
     </md-sidenav>
     <md-toolbar class="grey darken-3">
         <button class="app-icon-button" (click)="sidenav.toggle()">
           <i class="material-icons app-toolbar-menu">menu</i>
         </button>
-        <div class="white-text">Vally - Gerenciador financeiro</div>
+        <div class="white-text">Vally</div>
     </md-toolbar>
     <div class="app-content">
-        <app-facebook></app-facebook>
         <router-outlet></router-outlet>
     </div>
 </md-sidenav-container>
-<span class="app-action" [class.m2app-dark]="isDarkTheme">
-</span>
 
+<!--<app>
+  <md-sidenav-layout>
+    <md-sidenav #start>
+      Start Sidenav.
+      <br>
+      <button md-button #mybutton>Close</button>
+    </md-sidenav>
+    <md-sidenav #end align="end">
+      End Sidenav.
+      <button md-button>Close</button>
+    </md-sidenav>
+ 
+    My regular content. This will be moved into the proper DOM at runtime.
+  </md-sidenav-layout>
+</app>-->
 
 <!--
 

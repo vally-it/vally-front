@@ -1,0 +1,29 @@
+<div class="row">
+  <form class="col s12" name="account" (ngSubmit)="formPost()">
+    <div class="row">
+      <div class="input-field col s6">
+        <input [(ngModel)]="account.Description" name="description" placeholder="Descrição desta conta ex.: Conta poupança" id="description"
+          type="text" class="validate">
+          <label for="description">Descrição</label>
+      </div>
+      <div class="input-field col s6">
+        <input [(ngModel)]="account.CurrentBalance" name="currentBalance" placeholder="Valor inicial da conta ex.: R$ 350,00" id="currentBalance"
+          type="text" class="validate">
+          <label for="currentBalance">Valor atual</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s6">
+        <label>Tipo da conta</label>
+        <select class="browser-default" [(ngModel)]="selectedAccountKind" [ngModelOptions]="{standalone: true}"> 
+              <option *ngFor="let kind of accountsKinds" [ngValue]="kind">{{kind.Description}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <button type="submit" class="btn btn-success">CRIAR</button>
+      </div>
+    </div>
+  </form>
+</div>

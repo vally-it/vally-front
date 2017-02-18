@@ -4,21 +4,34 @@
             <div class="card-content white-text">
                 <div class="row">
                     <div class="col m12">
-                        <span class="card-title">{{account.description}}</span>
+                        <span class="card-title">{{account.Description}}</span>
                     </div>
                     <div class="col m6">
                         <i class="medium material-icons">credit_card</i>
                     </div>
                     <div class="col m6">
-                        <h4 class="right-align">{{account.currentBalance | currency:'BRL':true:'1.2-2'}}</h4>
+                        <h4 class="right-align">{{account.CurrentBalance | currency:'BRL':true:'1.2-2'}}</h4>
                     </div>
                 </div>
             </div>
             <div class="card-action right-align">
-                <a class="red-text darken-3" href="#">Débito</a>
-                <a class="teal-text darken-3" href="#">Crédito</a>
-                <a class="blue-text darken-3" href="#">Extrato</a>
+                <a class="red-text darken-3" (click)="newDebit()">Débito</a>
+                <a class="teal-text darken-3" (click)="newCredit()">Crédito</a>
+                <a class="blue-text darken-3" (click)="showEntries(account)">Extrato</a>
             </div>
         </div>
     </div>
 </div>
+
+
+  <div class="fixed-action-btn horizontal">
+    <a class="btn-floating btn-large red">
+      <i class="large material-icons">launch</i>
+    </a>
+    <ul>
+      <li><a class="btn-floating green" routerLink="/accounts/create" routerLinkActive="active"><i class="material-icons">add</i></a></li>
+      <!--<li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>-->
+    </ul>
+  </div>    

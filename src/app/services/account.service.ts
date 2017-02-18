@@ -1,5 +1,5 @@
 import { Injectable} from '@angular/core';
-import { Account } from '../account';
+import { Account } from '../types/account';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';
@@ -16,5 +16,9 @@ export class AccountService {
     return this.http.get(this.serviceUrl)
                     .map((res:Response) => res.json())
                     .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  create(account : Account){
+    return this.http.post(this.serviceUrl, account);
   }
 }

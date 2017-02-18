@@ -9,10 +9,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccountComponent } from './account/account.component';
 import { AccountService } from './services/account.service';
 import { FacebookComponent } from './facebook/facebook.component';
+import { AccountCreateComponent } from './account-create/account-create.component';
 
 const appRoutes: Routes = [
   { path: 'accounts', component: AccountComponent },
-  { path: 'entry-list', component: EntryListComponent }
+  { path: 'accounts/create', component: AccountCreateComponent },
+  { path: 'entry-list/:id', component: EntryListComponent }
 ];
 
 @NgModule({
@@ -20,7 +22,8 @@ const appRoutes: Routes = [
     AppComponent,
     EntryListComponent,
     AccountComponent,
-    FacebookComponent
+    FacebookComponent,
+    AccountCreateComponent
   ],
   imports: [
     BrowserModule,
